@@ -28,7 +28,14 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         // At Starting of game , GameManager will send the event to set the actionMap
-        ChangeActionMap(ActionMapManager.ActionMap.Land);   
+        StartCoroutine(start());
+    }
+
+    IEnumerator start()
+    {
+        Debug.Log("Game Manager start");
+        yield return new WaitForEndOfFrame();
+        ChangeActionMap(ActionMapManager.ActionMap.Land);
     }
 
     /// <summary>
